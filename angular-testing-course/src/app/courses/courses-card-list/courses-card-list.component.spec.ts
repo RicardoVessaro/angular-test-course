@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {CoursesCardListComponent} from './courses-card-list.component';
 import {CoursesModule} from '../courses.module';
 import {COURSES} from '../../../../server/db-data';
@@ -13,10 +13,26 @@ import {setupCourses} from '../common/setup-test-data';
 
 describe('CoursesCardListComponent', () => {
 
+  let component: CoursesCardListComponent;
+
+  let fixture: ComponentFixture<CoursesCardListComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [CoursesModule]
+    })
+      .compileComponents()  // .compileComponents is an asynchronous task 
+      .then(() => {         // so using .then is the safest way to prepare your tests.
+
+          fixture = TestBed.createComponent(CoursesCardListComponent);
+          component = fixture.componentInstance;
+
+      });
+  }));
 
   it("should create the component", () => {
 
-   pending();
+    expect(component).toBeTruthy();
 
   });
 
