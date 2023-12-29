@@ -96,7 +96,8 @@ describe('HomeComponent', () => {
   });
 
 
-  it("should display advanced courses when tab clicked", (done: DoneFn) => {
+  // xit because this case will be explained in the lesson S4 #33.
+  xit("should display advanced courses when tab clicked", (done: DoneFn) => { 
 
     coursesService.findAllCourses.and.returnValue(of(setupCourses()));
 
